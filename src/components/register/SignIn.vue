@@ -9,7 +9,7 @@
                     </div>
                     <div class="flex flex-col relative  gap-3">     
                             <div class="flex flex-col gap-2">
-                                    <div @click="clickcounter">UserName{{ checkpage.aftercreated }}</div>
+                                    <div @click="clickcounter">{{ view.viewpage }}</div>
                                     <div><input type="text" class="w-full" placeholder="name/gmail"></div>
                             </div>
                             <div class="flex flex-col gap-2">
@@ -37,22 +37,17 @@ import { inject, } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
-  setup() {
-        const router = useRouter();
-       const checkpage = inject("checkpage");
-       const login = ()=>{
-        checkpage.aftercreated = true
-        
-        
-        router.push("/view")
-        
-       }
-
-
-       return {
-        checkpage,
-        login
-       }
+  setup(){
+      const view = inject('view')  ;
+      const router = useRouter();
+      const clickcounter =()=>{
+        view.viewpage = true;
+        router.push('/products')
+      }
+      return {
+        view,
+        clickcounter
+      }
   }
 };
 

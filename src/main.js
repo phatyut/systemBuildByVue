@@ -12,6 +12,7 @@ import {
             faUserSecret,
             faArrowLeft,
             faArrowRight,
+            faArrowRightFromBracket
         
         } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -47,6 +48,7 @@ library.add(
                  faFacebook,
                  faArrowLeft,
                  faArrowRight,
+                 faArrowRightFromBracket,
             );
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router)
