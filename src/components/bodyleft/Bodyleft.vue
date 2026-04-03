@@ -16,6 +16,7 @@
                 <router-link to="/view">View</router-link>
                 <router-link to="/products">Products</router-link>
                 <router-link to="/settings">Settings</router-link>
+                <router-link to="/user">User</router-link>
                
             </div>
     </div>
@@ -29,7 +30,7 @@ export default{
         const view =inject("view");
         const signout = ()=>{
             view.viewpage = false;
-            router.push('/signup')
+            router.push('/signin')
         };
         return {
             signout,

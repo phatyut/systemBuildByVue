@@ -1,66 +1,63 @@
 <template>
-    <div class="relative text-white w-full h-full flex flex-col justify-center items-center" >
-            <div class=" relative w-80 h-100 gap-10 bg-gray-700/60 flex flex-col rounded-md p-8 ">
-                    <div class="flex flex-col gap-2 ">
-                        <div class="relative text-[18px] font-bold">Login with your account.</div>
-                        <div>
-                                <hr>
-                        </div>
-                    </div>
-                    <div class="flex flex-col relative  gap-3">     
-                            <div class="flex flex-col gap-2">
-                                    <div @click="clickcounter">{{ view.viewpage }}</div>
-                                    <div><input type="text" class="w-full" placeholder="name/gmail"></div>
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                    <div>PassWord:</div>
-                                    <div><input type="password" class="w-full" placeholder="Password"></div>
-                            </div>
-                    </div>
-                <div class="  absolute bottom-8 right-8 justify-end items-center">
-                <div><router-link to="/signup">SignUp</router-link></div>
-                    <div >
-                            <button class="bg-green-700/70 px-2.5 py-1 rounded-md hover:bg-green-700"
-                                    @click="login"
-                                    >
-                                    LogIn
-                            </button>
-                    </div>
-                </div>
-            
-        
-            </div>
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded shadow">
+      <h2 class="text-2xl font-bold text-center text-gray-700">Login</h2>
+      
+      <form @submit.prevent="handleLogin" class="space-y-4">
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Email</label>
+          <input 
+            v-model="email"
+            type="email"
+          
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+          />
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Password</label>
+          <input 
+            v-model="password"
+            type="password"
+           
+            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+          />
+        </div>
+
+        <!-- Submit -->
+        <button 
+          type="submit"
+          class="w-full py-2 text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none"
+        >
+          Login
+        </button>
+      </form>
     </div>
+  </div>
 </template>
+
 <script>
-import { inject, } from "vue";
-import { useRouter } from "vue-router";
 
-export default {
-  setup(){
-      const view = inject('view')  ;
-      const router = useRouter();
-      const clickcounter =()=>{
-        view.viewpage = true;
-        router.push('/products')
-      }
-      return {
-        view,
-        clickcounter
-      }
-  }
-};
+import { inject } from 'vue';
+import { useRouter } from 'vue-router';
+export default{
+        
+        setup(){
+                const router = useRouter();
+                const view = inject("view");
+                const handleLogin = ()=>{
+                        view.viewpage= true;
+                        router.push("/view")
+                }
 
 
-
-</script>
-<style scoped>
-input{
-    border: 1px solid gray;
-    outline: none;
-    height: 45px;
-    border-radius: 5px;
-    padding-left: 5px;
+                return {
+                        view,
+                        handleLogin
+                }
+        }
 }
 
-</style>
+</script>

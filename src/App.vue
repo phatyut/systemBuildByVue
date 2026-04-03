@@ -1,10 +1,4 @@
- <!-- <div
-        @click="hideandshow"
-        class="fixed top-[45%] left-0 flex justify-center items-center rounded-r-full h-8
-               bg-gray-700/90 cursor-pointer hover:text-white text-[15px] z-30"
-      >
-        <font-awesome-icon icon="fa-solid fa-arrow-right" />
-      </div> -->
+
 
 
 <template>
@@ -13,23 +7,31 @@
           <Bodyleft></Bodyleft>
       </div>
 
-      <div class="relative w-[80%] h-full bg-gray-800"  v-if="view.viewpage">
+      <div class="relative w-[80%] h-full bg-gray-800 flex flex-col "  v-if="view.viewpage">
+            
+            <div class=" relative w-full h-full">
               <routerView></routerView>
+            </div>
 
       </div>
 
-      <div class="fixed w-screen h-screen bg-red-200 left-0 top-0" v-else>
+      <div class="fixed w-screen h-screen bg-gray-800 left-0 top-0" v-else>
           <routerView></routerView>
       </div>
 
 </div>
 </template>
 <script>
+import UserAcount from './components/bodyleft/users/UserAcount.vue';
 import { ref,provide ,reactive ,onMounted,watch} from 'vue';
 export default{
+  components:{
+          UserAcount
+        },
   setup(){
     const view = reactive({
-                          viewpage:false
+                          viewpage:false,
+                          viewuseraccount:true
                         });
     
     provide('view',view);
