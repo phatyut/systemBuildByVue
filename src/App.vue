@@ -9,7 +9,7 @@
 
       <div class="relative w-[80%] h-full bg-gray-800 flex flex-col "  v-if="view.viewpage">
             
-            <div class=" relative w-full h-full">
+            <div class=" relative w-full h-full p-2 overflow-y-scroll">
               <routerView></routerView>
             </div>
 
@@ -31,7 +31,8 @@ export default{
   setup(){
     const view = reactive({
                           viewpage:false,
-                          viewuseraccount:true
+                          viewuseraccount:true,
+                          viewtitle:true
                         });
     
     provide('view',view);

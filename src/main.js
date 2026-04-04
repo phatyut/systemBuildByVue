@@ -16,7 +16,9 @@ import {
             faEnvelope,
             faBell,
             faCircleUser,
-            faMagnifyingGlass
+            faMagnifyingGlass,
+            faFloppyDisk,
+            faPenToSquare
 
            
         
@@ -60,7 +62,9 @@ library.add(
                 faEnvelope,
                 faBell,
                 faCircleUser,
-                faMagnifyingGlass
+                faMagnifyingGlass,
+                faFloppyDisk,
+                faPenToSquare
                   
             );
 app.component("font-awesome-icon", FontAwesomeIcon);

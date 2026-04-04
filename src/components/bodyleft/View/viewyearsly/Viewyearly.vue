@@ -1,4 +1,5 @@
 <template>
+  <div class="relative w-full h-75  border-l-1 border-gray-300 border-b-1"></div>
   <div>{{ yearsly }}</div>
   <div>{{ d }}</div>
 </template>
